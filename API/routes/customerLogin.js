@@ -1,7 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const router = express.Router();
-const login = require('../models/login_model');
+const login = require('../models/customerLogin_model');
 
 router.post('/', 
   function(request, response) {
@@ -17,7 +17,8 @@ router.post('/',
                 bcrypt.compare(Password, dbResult[0].Password, function (err, compareResult) {
                   if (compareResult) {
                     console.log("Success");
-                    response.send(true);
+                    response.json(dbResult[0].CustomerID);
+                    //response.send(true);
                   }
                   else {
                     console.log("Wrong password");

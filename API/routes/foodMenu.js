@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const customer = require('../models/customer_model');
+const foodMenu = require('../models/foodMenu_model');
 
 router.get('/:id?',
  function(request, response) {
   if (request.params.id) {
-    customer.getById(request.params.id, function(err, dbResult) {
+    foodMenu.getById(request.params.id, function(err, dbResult) {
       if (err) {
         response.json(err);
       } else {
@@ -13,7 +13,7 @@ router.get('/:id?',
       }
     });
   } else {
-    customer.getAll(function(err, dbResult) {
+    foodMenu.getAll(function(err, dbResult) {
       if (err) {
         response.json(err);
       } else {
@@ -25,7 +25,7 @@ router.get('/:id?',
 
 router.post('/', 
 function(request, response) {
-  customer.add(request.body, function(err, count) {
+  foodMenu.add(request.body, function(err, dbResult) {
     if (err) {
       response.json(err);
     } else {
@@ -36,7 +36,7 @@ function(request, response) {
 
 router.delete('/:id', 
 function(request, response) {
-  customer.delete(request.params.id, function(err, count) {
+  foodMenu.delete(request.params.id, function(err, count) {
     if (err) {
       response.json(err);
     } else {
@@ -48,7 +48,7 @@ function(request, response) {
 
 router.put('/:id', 
 function(request, response) {
-  customer.update(request.params.id, request.body, function(err, dbResult) {
+  foodMenu.update(request.params.id, request.body, function(err, dbResult) {
     if (err) {
       response.json(err);
     } else {
