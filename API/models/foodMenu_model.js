@@ -20,7 +20,7 @@ const foodMenu = {
   update: function(id, foodMenu, callback) {
     return db.query(
       'UPDATE FoodMenu SET ProductName = ?, Price = ? WHERE FoodMenuID=?',
-      [foodMenu.Name, foodMenu.Address, id],
+      [foodMenu.ProductName, foodMenu.Price, id],
       callback
     );
   }

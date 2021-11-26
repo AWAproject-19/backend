@@ -27,15 +27,7 @@ router.post('/',
                   response.end();
                 }
                 ); 
-               /* if (dbResult[0].Password == Password){
-                    console.log("Success");
-                    response.send(true);
-                }
-                else {
-                    console.log("Wrong Password");
-                    response.send(false);
-                }
-                response.end();*/
+              
               }
               else {
                 console.log("User doesn't exist.");
