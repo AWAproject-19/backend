@@ -2,7 +2,7 @@ const db = require('../database');
 
 const orders = {
   getById: function(id, callback) {
-    return db.query('SELECT * FROM Orders WHERE RestaurantID=?', [id], callback);
+    return db.query('SELECT * FROM Orders WHERE CustomerID=?', [id], callback);
   },
   getAll: function(callback) {
     return db.query('SELECT * FROM Orders', callback);
